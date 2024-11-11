@@ -1,0 +1,97 @@
+Here's a sample Python code for a dental clinic management system with patient and staff names, and clinic location:
+
+```
+# Dental Clinic Management System
+
+class Patient:
+    def __init__(self, name, age, contact, email):
+        self.name = name
+        self.age = age
+        self.contact = contact
+        self.email = email
+        self.appointments = []
+
+    def schedule_appointment(self, date, time, procedure):
+        self.appointments.append({
+            'date': date,
+            'time': time,
+            'procedure': procedure
+        })
+
+    def view_appointments(self):
+        print(f"Appointments for {self.name}:")
+        for appointment in self.appointments:
+            print(f"Date: {appointment['date']}, Time: {appointment['time']}, Procedure: {appointment['procedure']}")
+
+class Staff:
+    def __init__(self, name, role, specialty):
+        self.name = name
+        self.role = role
+        self.specialty = specialty
+
+class DentalClinic:
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.patients = {}
+        self.staff = {}
+
+    def add_patient(self, name, age, contact, email):
+        self.patients[name] = Patient(name, age, contact, email)
+
+    def add_staff(self, name, role, specialty):
+        self.staff[name] = Staff(name, role, specialty)
+
+    def view_patient_info(self, name):
+        patient = self.patients.get(name)
+        if patient:
+            print(f"Name: {patient.name}, Age: {patient.age}, Contact: {patient.contact}, Email: {patient.email}")
+        else:
+            print("Patient not found.")
+
+    def view_staff_info(self, name):
+        staff = self.staff.get(name)
+        if staff:
+            print(f"Name: {staff.name}, Role: {staff.role}, Specialty: {staff.specialty}")
+        else:
+            print("Staff not found.")
+
+# Create a dental clinic
+clinic_name = "Smile Care Dental Clinic"
+clinic_location = "123 Main St, Anytown, USA"
+clinic = DentalClinic(clinic_name, clinic_location)
+
+# Add patients
+clinic.add_patient("John Doe", 30, "123-456-7890", "johndoe@example.com")
+clinic.add_patient("Jane Doe", 25, "987-654-3210", "janedoe@example.com")
+
+# Add staff
+clinic.add_staff("Dr. Emily Chen", "Dentist", "General Dentistry")
+clinic.add_staff("Ms. Sarah Lee", "Hygienist", "Oral Health")
+
+# Schedule appointments
+clinic.patients["John Doe"].schedule_appointment("2024-02-15", "10:00 AM", "Cleaning")
+clinic.patients["Jane Doe"].schedule_appointment("2024-02-20", "2:00 PM", "Filling")
+
+# View patient appointments
+clinic.patients["John Doe"].view_appointments()
+clinic.patients["Jane Doe"].view_appointments()
+
+# View patient and staff info
+clinic.view_patient_info("John Doe")
+clinic.view_staff_info("Dr. Emily Chen")
+
+print(f"\nWelcome to {clinic.name} located at {clinic.location}!")
+``"
+
+This code includes:
+
+1.  Patient class: stores patient info and appointments.
+2.  Staff class: stores staff info.
+3.  DentalClinic class: manages patients, staff, and clinic info.
+4.  Methods for adding patients, staff, scheduling appointments, and viewing information.
+
+Feel free to modify and expand this code to suit your dental clinic management needs!
+
+Would you like me to add any specific features?
+```
